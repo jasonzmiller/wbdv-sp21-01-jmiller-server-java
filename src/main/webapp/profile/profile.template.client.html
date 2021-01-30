@@ -3,68 +3,65 @@
 <head>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Profile</title>
 </head>
 <body>
     <div class="container">
 
         <h1>Profile</h1>
 
-        <div class="alert alert-danger"
-             role="alert">
-            Danger Will Robinson
-        </div>
+    <div class="alert alert-success"
+         role="alert">
+        Profile successfully saved
+    </div>
 
-        <div class="alert alert-success"
-             role="alert">
-            Profile successfully saved
-        </div>
+    <form>
+        <div class="form-group row">
+            <label for="username"
+                   class="col-sm-2 col-form-label">
+                Username
+            </label>
 
-        <div class="mb-3 row">
-                <label
-                       class="col-sm-2 col-form-label">
-                    Username
-                </label>
             <div class="col-sm-10">
-                <input type="text"
+                <input class="form-control wbdv-field wbdv-username"
                        readonly
-                       class="form-control"
                        id="username"
-                       value="webbmcfrogg4"/>
+                       placeholder="webbmcfrogg4">
             </div>
         </div>
 
-        <div class="mb-3 row">
+        <div class="form-group row">
             <label for="phone"
                    class="col-sm-2 col-form-label">
                 Phone
             </label>
+
             <div class="col-sm-10">
-                <input type="tel"
-                       class="form-control"
-                       id="phone"/>
+                <input class="form-control"
+                       id="phone"
+                       placeholder="(914) 703-1075">
             </div>
         </div>
 
-        <div class="mb-3 row">
+        <div class="form-group row">
             <label for="email"
                    class="col-sm-2 col-form-label">
                 Email
             </label>
+
             <div class="col-sm-10">
-                <input type="email"
-                       class="form-control"
-                       title="Please enter a valid email"
-                       placeholder="webb@swampy.edu"
-                       id="email"/>
+                <input class="form-control"
+                       id="email"
+                       placeholder="webb@swampy.edu">
             </div>
         </div>
 
-        <div class="mb-3 row">
+        <div class="form-group row">
             <label for="role"
                    class="col-sm-2 col-form-label">
                 Role
             </label>
+
             <div class="col-sm-10">
                 <select id="role"
                         class="form-control">
@@ -75,11 +72,12 @@
             </div>
         </div>
 
-        <div class="mb-3 row">
+        <div class="form-group row">
             <label for="dob"
                    class="col-sm-2 col-form-label">
                 DOB
             </label>
+
             <div class="col-sm-10">
                 <input type="date"
                        class="form-control"
@@ -88,17 +86,28 @@
             </div>
         </div>
 
-        <div class="mb-3 row">
-            <label for="dob"
-                   class="col-sm-2 col-form-label">
-            </label>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">
-                <a class="btn btn-primary btn-block"
-                   href="../index.html">
-                    Submit
+                <a href="#">
+                    <button class="btn btn-success btn-block wbdv-login">
+                        Update
+                    </button>
                 </a>
             </div>
         </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <a href="../index.html">
+                    <button class="btn btn-danger btn-block wbdv-login">
+                        Logout
+                    </button>
+                </a>
+            </div>
+        </div>
+    </form>
 
     </div>
 </body>
