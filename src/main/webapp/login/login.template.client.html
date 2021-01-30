@@ -7,28 +7,64 @@
 </head>
 <body>
     <div class="container">
-    <h1>
-    Sign In
-    </h1>
 
-    <div>
-    Username    <input class="form-control"/>
-    </div>
+        <h1>
+            Sign In
+        </h1>
 
-    <div>
-    Password    <input class="form-control"/>
-    </div>
+        <form>
+            <div class="form-group row">
+                <label for="username"
+                       class="col-sm-2 col-form-label">
+                    Username
+                </label>
 
-    <div>
-                <button class="btn btn-primary btn-block">Sign in</button>
-    </div>
-                <a>Forgot Password</a>  <a>Sign Up</a>
+                <div class="col-sm-10">
+                    <input class="form-control wbdv-field wbdv-username"
+                           id="username"
+                           placeholder="webbmcfrogg4">
+                </div>
+            </div>
 
-    <div>
-    <a href="../index.html">
-        Home
-    </a>
-    </div>
+            <div class="form-group row">
+                <label for="password"
+                       class="col-sm-2 col-form-label">
+                    Password
+                </label>
+
+                <div class="col-sm-10">
+                    <input type="password"
+                           class="form-control wbdv-field wbdv-password"
+                           id="password"
+                           placeholder="cozylilypad123">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label"></label>
+
+                <div class="col-sm-10">
+                    <button class="btn btn-primary btn-block wbdv-login">
+                        Sign in
+                    </button>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="#">
+                                Forgot Password?
+                            </a>
+                        </div>
+
+                        <div class="col-6">
+                            <a href="profile.template.client.html"
+                               class="float-right">
+                                Sign up
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 </html>
