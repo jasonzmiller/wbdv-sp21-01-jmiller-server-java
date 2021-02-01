@@ -6,10 +6,22 @@
     z-index: 1;
 }
 
-.webb-padding-20px {
-    padding: 20px;
+.webb-padding-10px {
+    padding: 10px;
 }
 
 .webb-dashtable-title {
+    width: 30%;
+}
+
+.webb-dashtable-ownedby {
+    width: 20%;
+}
+
+.webb-dashtable-lastmodified {
     width: 40%;
+}
+
+.webb-dashtable-trash {
+    width: 10%;
 }
