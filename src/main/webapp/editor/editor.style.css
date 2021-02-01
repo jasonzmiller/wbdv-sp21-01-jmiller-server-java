@@ -6,6 +6,24 @@
     z-index: 1;
 }
 
+.webb-background-aliceblue {
+    background: aliceblue;
+}
+
 .webb-padding-top-70px {
     padding-top: 70px;
+}
+
+.webb-pill-color {
+    color: azure;
+    background-color: black;
+    border: solid 1px deepskyblue;
+}
+
+.webb-azure {
+    color: azure;
+}
+
+.webb-pill-active-border {
+    border: solid 1px azure;
 }
