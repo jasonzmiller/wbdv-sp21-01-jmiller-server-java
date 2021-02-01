@@ -1,7 +1,8 @@
 .wbdv-sticky-top {
+    background-color: deepskyblue;
+    padding: 10px;
     position: fixed;
     width: 100%;
-    background-color: white;
     z-index: 1;
 }
 

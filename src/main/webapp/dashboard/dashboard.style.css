@@ -1,0 +1,11 @@
+.webb-sticky-top {
+    background-color: deepskyblue;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.webb-padding-20px {
+    padding: 20px;
+}
