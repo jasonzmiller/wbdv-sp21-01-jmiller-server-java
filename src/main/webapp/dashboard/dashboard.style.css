@@ -6,8 +6,16 @@
     z-index: 1;
 }
 
-.webb-padding-10px {
-    padding: 10px;
+.webb-padding-30px {
+    padding: 30px;
+}
+
+.webb-padding-top-50px {
+    padding-top: 50px;
+}
+
+.webb-hr-thick {
+    width: 10px;
 }
 
 .webb-dashtable-title {
