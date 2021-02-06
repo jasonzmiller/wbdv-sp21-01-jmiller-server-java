@@ -26,7 +26,7 @@
                     <th>&nbsp;</th>
                 </tr>
 
-                <tr class="wbdv-form">
+                <tr>
                     <td><input id="usernameFld"
                                class="form-control"
                                placeholder="Username" /></td>
@@ -48,9 +48,15 @@
                     <td class="text-right">
                         <span class="pull-right"
                               style="white-space: nowrap">
-                        <i class="fa-2x fa fa-plus"></i>
-                        <i class="fa-2x fa fa-check"></i>
-                        <i class="fa-2x fa fa-search"></i>
+                        <button class="webb-btn-textonly">
+                            <i class="fa-2x fa fa-search"></i>
+                        </button>
+                        <button class="webb-btn-create-user webb-btn-textonly">
+                            <i class="fa-2x fa fa-plus"></i>
+                        </button>
+                        <button class="webb-btn-textonly">
+                            <i class="fa-2x fa fa-check"></i>
+                        </button>
                     </span></td>
                 </tr>
 
@@ -62,8 +68,12 @@
                         <td>McFroggington</td>
                         <td>FACULTY</td>
                         <td class="text-right">
-                            <i class="fa-2x fa fa-times"></i>
-                            <i class="fa-2x fa fa-pencil-alt"></i>
+                            <button class="webb-btn-textonly">
+                                <i class="fa-2x fa fa-times"></i>
+                            </button>
+                            <button class="webb-btn-textonly">
+                                <i class="fa-2x fa fa-pencil-alt"></i>
+                            </button>
                         </td>
                     </tr>
                 </tbody>
@@ -72,7 +82,7 @@
         </table>
     </div>
 <!--    <script src="../services/user.service.client.js"></script>-->
-<!--    <script src="user-admin.controller.client.js"></script>-->
+    <script src="user-admin.controller.client.js"></script>
 <body>
 
 </body>
