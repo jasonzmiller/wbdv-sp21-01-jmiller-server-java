@@ -20,14 +20,14 @@ function AdminUserServiceClient() {
     }
 
     function findAllUsers() {
-        return promise = fetch(self.url)
+        return fetch(self.url)
             .then(function (response) {
                 return response.json()
             })
     }
 
     function findUserById(userId) {
-
+        // TODO
     }
 
     function updateUser(userId, user) {

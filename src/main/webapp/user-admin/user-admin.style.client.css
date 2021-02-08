@@ -3,9 +3,6 @@
     border: none;
 }
 
-/*
-.webb-btn-create-user, .webb-btn-textonly {
+.webb-password-hidden {
+    content-visibility: hidden;
 }
-
-.webb-btn-create-user, .webb-btn-textonly {
-}*/

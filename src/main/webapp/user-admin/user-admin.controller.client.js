@@ -7,6 +7,7 @@ var $addUserBtn
 var $updateUserBtn
 var $tableBody
 var adminUserService = new AdminUserServiceClient()
+var selectedUser
 
 var users = []
 
@@ -36,7 +37,16 @@ function createUser(user) {
         })
 }
 
-var selectedUser = null
+function deleteUser(event) {
+    var deleteBtn = $(event.currentTarget)
+    var theIndex = deleteBtn.attr("id")
+    var theID = users[theIndex]._id
+    adminUserService.deleteUser(theID)
+        .then(function (status) {
+            users.splice(theIndex, 1)
+            renderUsers(users)
+        })
+}
 
 function selectUser(event) {
     var selectBtn = $(event.currentTarget)
@@ -50,7 +60,6 @@ function selectUser(event) {
 }
 
 function updateUser() {
-    console.log(selectedUser)
     selectedUser.username = $usernameFld.val()
     selectedUser.password = $passwordFld.val()
     selectedUser.firstname = $firstNameFld.val()
@@ -62,17 +71,10 @@ function updateUser() {
             users[index] = selectedUser
             renderUsers(users)
         })
-}
-
-function deleteUser(event) {
-    var deleteBtn = $(event.currentTarget)
-    var theIndex = deleteBtn.attr("id")
-    var theID = users[theIndex]._id
-    adminUserService.deleteUser(theID)
-        .then(function (status) {
-            users.splice(theIndex, 1)
-            renderUsers(users)
-        })
+    $usernameFld.val("")
+    $passwordFld.val("")
+    $firstNameFld.val("")
+    $lastNameFld.val("")
 }
 
 function renderUsers(users) {
@@ -80,10 +82,10 @@ function renderUsers(users) {
     for (var i = 0; i < users.length; i++) {
         var user = users[i]
         $tableBody
-            .prepend(`
+            .append(`
             <tr>
                 <td>${user.username}</td>
-                <td>${user.password}</td>
+                <td class="webb-password-hidden">${user.password}</td>
                 <td>${user.firstname}</td>
                 <td>${user.lastname}</td>
                 <td>${user.role}</td>
@@ -106,6 +108,15 @@ function renderUsers(users) {
         .click(selectUser)
 }
 
+function findAllUsers() {
+    // TODO
+}
+
+
+function findUserById() {
+    // TODO
+}
+
 function init() {
     $usernameFld = $(".webb-username-fld")
     $passwordFld = $(".webb-password-fld")
@@ -115,6 +126,7 @@ function init() {
     $addUserBtn = $(".webb-btn-create-user")
     $updateUserBtn = $(".webb-btn-update-user")
     $tableBody = $("tbody")
+    selectedUser = null
 
     $addUserBtn.click(() => {
             createUser({
