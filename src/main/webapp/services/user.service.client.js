@@ -27,7 +27,8 @@ function AdminUserServiceClient() {
     }
 
     function findUserById(userId) {
-        // TODO
+        return fetch(`${self.url}/${userId}`)
+            .then(response => response.json())
     }
 
     function updateUser(userId, user) {

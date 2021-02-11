@@ -10,3 +10,7 @@
 .webb-background-aliceblue {
     background: aliceblue;
 }
+
+.webb-whitespace-nowrap {
+    white-space: nowrap;
+}
