@@ -30,11 +30,14 @@ function addUser() {
 }
 
 function createUser(user) {
-    adminUserService.createUser(user)
-        .then(function (actualUser) {
-            users.push(actualUser)
-            renderUsers(users)
-        })
+    if ($usernameFld.val().length != 0 & $passwordFld.val().length != 0 &
+        $firstNameFld.val().length != 0 & $lastNameFld.val().length != 0){
+        adminUserService.createUser(user)
+            .then(function (actualUser) {
+                users.push(actualUser)
+                renderUsers(users)
+            })
+    }
 }
 
 function deleteUser(event) {
@@ -129,13 +132,13 @@ function init() {
     selectedUser = null
 
     $addUserBtn.click(() => {
-            createUser({
-                username: $usernameFld.val(),
-                password: $passwordFld.val(),
-                firstname: $firstNameFld.val(),
-                lastname: $lastNameFld.val(),
-                role: $roleFld.val()
-            })
+        createUser({
+            username: $usernameFld.val(),
+            password: $passwordFld.val(),
+            firstname: $firstNameFld.val(),
+            lastname: $lastNameFld.val(),
+            role: $roleFld.val()
+        })
             $usernameFld.val("")
             $passwordFld.val("")
             $firstNameFld.val("")

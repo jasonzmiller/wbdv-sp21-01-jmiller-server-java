@@ -6,3 +6,7 @@
 .webb-password-hidden {
     content-visibility: hidden;
 }
+
+.webb-background-aliceblue {
+    background: aliceblue;
+}
