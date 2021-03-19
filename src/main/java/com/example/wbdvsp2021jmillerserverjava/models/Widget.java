@@ -2,7 +2,7 @@ package com.example.wbdvsp2021jmillerserverjava.models;
 
 public class Widget {
     private String name;
-    private Long id;
+    private String id;
     private String type;
     private int widgetOrder;
     private String text;
@@ -15,7 +15,7 @@ public class Widget {
     private String value;
     private String topicId;
 
-    public Widget(String name, Long id, String type, int widgetOrder, String text, String url, int size, int width, int height, String cssClass, String style, String value, String topicId) {
+    public Widget(String name, String id, String type, int widgetOrder, String text, String url, int size, int width, int height, String cssClass, String style, String value, String topicId) {
         this.name = name;
         this.id = id;
         this.type = type;
@@ -31,7 +31,7 @@ public class Widget {
         this.topicId = topicId;
     }
 
-    public Widget(String name, Long id, String topicId, String type, int size, String text) {
+    public Widget(String name, String id, String topicId, String type, int size, String text) {
         this.name = name;
         this.id = id;
         this.topicId = topicId;
@@ -51,11 +51,11 @@ public class Widget {
         this.name = name;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

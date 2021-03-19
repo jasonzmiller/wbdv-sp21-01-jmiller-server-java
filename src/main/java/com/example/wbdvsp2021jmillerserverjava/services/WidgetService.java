@@ -11,11 +11,11 @@ import java.util.List;
 public class WidgetService {
     private List<Widget> widgets = new ArrayList<>();
     {
-        Widget w1 = new Widget("w1", 123l, "ABC123", "HEADING", 1, "Welcome to Topic ABC123");
-        Widget w2 = new Widget("w2", 234l, "ABC123", "PARAGRAPH", 1, "LOREM IPSUM");
-        Widget w3 = new Widget("w3", 345l, "ABC234", "HEADING", 2, "Welcome to Topic ABC234");
-        Widget w4 = new Widget("w4", 456l, "ABC234", "PARAGRAPH", 1, "LOREM IPSUM");
-        Widget w5 = new Widget("w5", 567l, "ABC234", "PARAGRAPH", 1, "LOREM IPSUM");
+        Widget w1 = new Widget("w1", "123l", "ABC123", "HEADING", 1, "Welcome to Topic ABC123");
+        Widget w2 = new Widget("w2", "234l", "ABC123", "PARAGRAPH", 1, "LOREM IPSUM");
+        Widget w3 = new Widget("w3", "345l", "ABC234", "HEADING", 2, "Welcome to Topic ABC234");
+        Widget w4 = new Widget("w4", "456l", "ABC234", "PARAGRAPH", 1, "LOREM IPSUM");
+        Widget w5 = new Widget("w5", "6047e3dcf10b760017274c0c", "6047e3dcf10b760017274c0c", "PARAGRAPH", 1, "LOREM IPSUM");
 
         widgets.add(w1);
         widgets.add(w2);
