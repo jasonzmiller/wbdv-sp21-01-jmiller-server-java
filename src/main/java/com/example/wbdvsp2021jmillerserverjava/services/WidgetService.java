@@ -10,22 +10,24 @@ import java.util.List;
 @Service
 public class WidgetService {
     private List<Widget> widgets = new ArrayList<>();
-    {
-        Widget w1 = new Widget("w1", "123l", "ABC123", "HEADING", 1, "Welcome to Topic ABC123");
-        Widget w2 = new Widget("w2", "234l", "ABC123", "PARAGRAPH", 1, "LOREM IPSUM");
-        Widget w3 = new Widget("w3", "345l", "ABC234", "HEADING", 2, "Welcome to Topic ABC234");
-        Widget w4 = new Widget("w4", "456l", "ABC234", "PARAGRAPH", 1, "LOREM IPSUM");
-        Widget w5 = new Widget("w5", "6047e3dcf10b760017274c0c", "6047e3dcf10b760017274c0c", "PARAGRAPH", 1, "LOREM IPSUM");
-
-        widgets.add(w1);
-        widgets.add(w2);
-        widgets.add(w3);
-        widgets.add(w4);
-        widgets.add(w5);
-    }
+//    {
+//        Widget w1 = new Widget("w1", 123l, "ABC123", "HEADING", 1, "Welcome to Topic ABC123");
+//        Widget w2 = new Widget("w2", 234l, "ABC123", "PARAGRAPH", 1, "LOREM IPSUM");
+//        Widget w3 = new Widget("w3", 345l, "ABC234", "HEADING", 2, "Welcome to Topic ABC234");
+//        Widget w4 = new Widget("w4", 456l, "ABC234", "PARAGRAPH", 1, "LOREM IPSUM");
+//        Widget w5 = new Widget("w5", 567l, "6047e3dcf10b760017274c0c", "PARAGRAPH", 1, "LOREM IPSUM");
+//
+//        widgets.add(w1);
+//        widgets.add(w2);
+//        widgets.add(w3);
+//        widgets.add(w4);
+//        widgets.add(w5);
+//    }
 
     public Widget createWidget(String tid, Widget widget){
         widget.setTopicId(tid);
+        widget.setId((new Date()).getTime());
+        widgets.add(widget);
         return widget;
     }
 
@@ -41,35 +43,30 @@ public class WidgetService {
 
     public int updateWidget(String wid, Widget widget) {
         for (int i = 0; i < widgets.size(); i++) {
-            if (widgets.get(i).getId().equals(wid)) {
+            if (widgets.get(i).getId().equals(Long.parseLong(wid))) {
                 widgets.set(i, widget);
                 return 1;
             }
         }
 
-        return -1;
+        return 0;
     }
 
     public int deleteWidget(String wid) {
-        int index = -1;
+        int index;
 
         for (int i = 0; i < widgets.size(); i++) {
-            if (widgets.get(i).getId().equals(wid)) {
+            if (widgets.get(i).getId().equals(Long.parseLong(wid))) {
                 index = i;
                 widgets.remove(index);
                 return 1;
             }
         }
 
-        return -1;
+        return 0;
     }
 
     public List<Widget> findAllWidgets() {
         return widgets;
-    }
-
-    // TODO: OPTIONAL
-    public Widget findWidgetById(String wid) {
-        return null;
     }
 }
