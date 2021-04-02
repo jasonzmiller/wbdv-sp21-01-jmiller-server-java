@@ -1,6 +1,8 @@
 package com.example.wbdvsp2021jmillerserverjava.services;
 
 import com.example.wbdvsp2021jmillerserverjava.models.Widget;
+import com.example.wbdvsp2021jmillerserverjava.repositories.WidgetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,7 +11,11 @@ import java.util.List;
 
 @Service
 public class WidgetService {
-    private List<Widget> widgets = new ArrayList<>();
+
+    @Autowired
+    WidgetRepository repository;
+
+//    private List<Widget> widgets = new ArrayList<>();
 //    {
 //        Widget w1 = new Widget("w1", 123l, "ABC123", "HEADING", 1, "Welcome to Topic ABC123");
 //        Widget w2 = new Widget("w2", 234l, "ABC123", "PARAGRAPH", 1, "LOREM IPSUM");
@@ -26,47 +32,89 @@ public class WidgetService {
 
     public Widget createWidget(String tid, Widget widget){
         widget.setTopicId(tid);
-        widget.setId((new Date()).getTime());
-        widgets.add(widget);
-        return widget;
+        return repository.save(widget);
+
+//        widget.setId((new Date()).getTime());
+//        widgets.add(widget);
+//        return widget;
     }
 
     public List<Widget> findWidgetsForTopic(String tid) {
-        List<Widget> ws = new ArrayList<>();
-        for (Widget w: widgets) {
-            if (w.getTopicId().equals(tid)) {
-                ws.add(w);
-            }
-        }
-        return ws;
+        return repository.findWidgetsForTopic(tid);
+//        List<Widget> ws = new ArrayList<>();
+//        for (Widget w: widgets) {
+//            if (w.getTopicId().equals(tid)) {
+//                ws.add(w);
+//            }
+//        }
+//        return ws;
     }
 
     public int updateWidget(String wid, Widget widget) {
-        for (int i = 0; i < widgets.size(); i++) {
-            if (widgets.get(i).getId().equals(Long.parseLong(wid))) {
-                widgets.set(i, widget);
-                return 1;
+        if (repository.findById(Long.parseLong(wid)).isPresent()) {
+            Widget originalWidget = repository.findById(Long.parseLong(wid)).get();
+
+            if (widget.getName() != null) {
+                originalWidget.setName(widget.getName());
             }
+
+            if (widget.getType() != null) {
+                originalWidget.setType(widget.getType());
+            }
+
+            originalWidget.setWidgetOrder(widget.getWidgetOrder());
+
+            if (widget.getText() != null) {
+                originalWidget.setText(widget.getText());
+            }
+
+            if (widget.getUrl() != null) {
+                originalWidget.setUrl(widget.getUrl());
+            }
+
+            originalWidget.setSize(widget.getSize());
+
+            originalWidget.setWidth(widget.getWidth());
+
+            originalWidget.setHeight(widget.getHeight());
+
+            if (widget.getCssClass() != null) {
+                originalWidget.setCssClass(widget.getCssClass());
+            }
+
+            if (widget.getStyle() != null) {
+                originalWidget.setStyle(widget.getStyle());
+            }
+
+            if (widget.getValue() != null) {
+                originalWidget.setValue(widget.getValue());
+            }
+
+            originalWidget.setOrdered(widget.isOrdered());
+
+            repository.save(originalWidget);
+            return 1;
         }
 
         return 0;
     }
 
     public int deleteWidget(String wid) {
-        int index;
-
-        for (int i = 0; i < widgets.size(); i++) {
-            if (widgets.get(i).getId().equals(Long.parseLong(wid))) {
-                index = i;
-                widgets.remove(index);
-                return 1;
-            }
-        }
+        repository.deleteById(Long.parseLong(wid));
+//        int index;
+//
+//        for (int i = 0; i < widgets.size(); i++) {
+//            if (widgets.get(i).getId().equals(Long.parseLong(wid))) {
+//                index = i;
+//                widgets.remove(index);
+//                return 1;
+//            }
+//        }
 
         return 0;
     }
 
     public List<Widget> findAllWidgets() {
-        return widgets;
+        return (List<Widget>) repository.findAll();
     }
 }

@@ -1,8 +1,16 @@
 package com.example.wbdvsp2021jmillerserverjava.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="widgets")
 public class Widget {
     private String name;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String type;
     private int widgetOrder;
     private String text;
@@ -14,6 +22,7 @@ public class Widget {
     private String style;
     private String value;
     private String topicId;
+    public Boolean ordered;
 
     public Widget(String name, Long id, String type, int widgetOrder, String text, String url, int size, int width, int height, String cssClass, String style, String value, String topicId) {
         this.name = name;
@@ -145,5 +154,13 @@ public class Widget {
 
     public void setTopicId(String topicId) {
         this.topicId = topicId;
+    }
+
+    public Boolean isOrdered() {
+        return ordered;
+    }
+
+    public void setOrdered(Boolean ordered) {
+        this.ordered = ordered;
     }
 }
